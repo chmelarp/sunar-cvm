@@ -1,0 +1,55 @@
+
+
+
+
+init done 
+opengl support available 
+blobtrack [fg=<fg_name>] [bd=<bd_name>]
+          [bt=<bt_name>] [btpp=<btpp_name>]
+          [bta=<bta_name>
+          [bta_data=<bta_data_name>
+          [bt_corr=<bt_corr_way>]
+          [btgen=<btgen_name>]
+          [track=<track_file_name>]
+          [scale=<scale val>] [noise=<noise_name>] [IVar=<IVar_name>]
+          [FGTrainFrames=<FGTrainFrames>]
+          [btavi=<avi output>] [fgavi=<avi output on FG>]
+          <avi_file>
+  <bt_corr_way> is the method of blob position correction for the "Blob Tracking" module
+     <bt_corr_way>=none,PostProcRes
+  <FGTrainFrames> is number of frames for FG training
+  <track_file_name> is file name for save tracked trajectories
+  <bta_data> is file name for data base of trajectory analysis module
+  <avi_file> is file name of avi to process by BlobTrackerAuto
+
+Modules:
+<fg_name> is "FG/BG Detection" module name and can be:
+  1. FG_0 - Foreground Object Detection from Videos Containing Complex Background. ACM MM2003.
+  2. FG_0S - Simplified version of FG_0
+  3. FG_1 - Adaptive background mixture models for real-time tracking. CVPR1999
+<bd_name> is "Blob Entrance Detection" module name and can be:
+  1. BD_CCiLIDS - Detect new blob by tracking CC of FG mask; including the iLIDS devel&eval strar frames
+  2. BD_CC - Detect new blob by tracking CC of FG mask
+  3. BD_Simple - Detect new blob by uniform moving of connected components of FG mask
+<bt_name> is "Blob Tracking" module name and can be:
+  1. CCMSPF - connected component tracking and MSPF resolver for collision
+  2. CC - Simple connected component tracking
+  3. MS - Mean shift algorithm 
+  4. MSFG - Mean shift algorithm with FG mask using
+  5. MSPF - Particle filtering based on MS weight
+<btpp_name> is "Blob Trajectory Post Processing" module name and can be:
+  1. Kalman - Kalman filtering of blob position and size
+  2. None - No post processing filter
+<btgen_name> is "Blob Trajectory Generation" module name and can be:
+  1. Features - Generate track record in database (sunar.tracks) including features (sunar.states)
+  2. YML - Generate track record in YML format as synthetic video data
+  3. RawTracks - Generate raw track record (x,y,sx,sy),()... in each line
+<bta_name> is "Blob Trajectory Analysis" module name and can be:
+  1. None - No trajectory analiser
+  2. HistPVS - Histogram of 5D feature vector analysis (x,y,vx,vy,state)
+  3. HistP - Histogram of 2D feature vector analysis (x,y)
+  4. HistPV - Histogram of 4D feature vector analysis (x,y,vx,vy)
+  5. HistSS - Histogram of 4D feature vector analysis (startpos,endpos)
+  6. TrackDist - Compare tracks directly
+  7. IOR - Integrator (by OR operation) of several analysers 
+Press [Enter] to close the terminal ...
